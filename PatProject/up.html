@@ -81,24 +81,19 @@ div.desc {
 				
 
 				<div class="topbar-child2">
-						<a href="teacher.html" class="topbar-social-item "><font color="#000">Teach a Skill</font></p></a>
+			<!-- 			<a href="teacher.html" class="topbar-social-item "><font color="#000">Teach a Skill</font></p></a>
 
 					<span class="linedivide1"></span>
-					
-					<span class="topbar-email" style="font-family: sans-serif; color: #7B1FA2;">
-						skillaby@skillaby.co.ke
-					</span>
+		
 
-					<span class="linedivide1"></span>
-
-						<a href="#" class="topbar-social-item "><font color="#000">Sign In</font></p></a>
+						<a href="sign" class="topbar-social-item "><font color="#000">Sign In</font></p></a>
 
 					<span class="linedivide1"></span>
 
 
 						<a href="#" class="topbar-social-item "><font color="#000">Log In</font></p></a>
 
-					<span class="linedivide1"></span>
+					<span class="linedivide1"></span> -->
 
 
 					<div class="topbar-language rs1-select2">
@@ -144,9 +139,9 @@ div.desc {
             <div class="col-md-12 text-center ">
                 <nav class="nav-justified ">
                   <div class="nav nav-tabs " id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="pop1-tab" data-toggle="tab" href="#pop1" role="tab" aria-controls="pop1" aria-selected="true"><font color="#7B1FA2">Step 1 : Skill</font></a>
-                    <a class="nav-item nav-link" id="pop2-tab" data-toggle="tab" href="#pop2" role="tab" aria-controls="pop2" aria-selected="false"><font color="#7B1FA2">Step 2: Schedule</font></a>
-                    <a class="nav-item nav-link" id="pop3-tab" data-toggle="tab" href="#pop3" role="tab" aria-controls="pop3" aria-selected="false"><font color="#7B1FA2">Step 3: Pricing</font></a>
+                    <a class="nav-item nav-link active" id="pop1-tab" data-toggle="tab" href="#pop1" role="tab" aria-controls="pop1" aria-selected="true"><font color="#7B1FA2"> 1 : Upload</font></a>
+                    <a class="nav-item nav-link" id="pop2-tab" data-toggle="tab" href="#pop2" role="tab" aria-controls="pop2" aria-selected="false"><font color="#7B1FA2"> 2: Next</font></a>
+                    <a class="nav-item nav-link" id="pop3-tab" data-toggle="tab" href="#pop3" role="tab" aria-controls="pop3" aria-selected="false"><font color="#7B1FA2"> 3: Submit</font></a>
                     
                   </div>
                 </nav>
@@ -263,12 +258,18 @@ $(document).ready(function(){
 </script>
 
 <form>
-  <label>
-    <p class="label-txt">Enter Category</p>
-    <input type="text" class="input">
-    <div class="line-box">
-      <div class="line"></div>
-    </div>
+ <label>
+    <p class="label-txt">Select Category</p>
+    <br>
+<select style="float: center;">
+  <option value="Weekdays">Painting</option>
+  <option value="Weekends">Business</option>
+  <option value="Music">Music</option>
+ <option value="Cooking">Cooking</option>
+  <option value="IT">IT</option>
+
+
+</select> 
   </label>
   <label>
     <p class="label-txt">Brief description</p>
@@ -286,7 +287,7 @@ $(document).ready(function(){
 </form>   
   </label>
 	<!-- Button -->
-						<!-- 		<a class="btn btn-primary" href="#" role="button" style="background-color: #7B1FA2; float: center;">Next</a> </form> -->
+<!-- 								<a class="btn btn-primary" href="pop2" role="button" style="background-color: #7B1FA2; float: center;">Next</a> </form> -->
                         
 
 
@@ -410,7 +411,6 @@ $(document).ready(function(){
   <option value="Weekdays">Weekdays</option>
   <option value="Weekends">Weekends</option>
   <option value="Both">Both</option>
-  <option value="audi">Audi</option>
 </select> 
   </label>
   <label>
@@ -584,13 +584,20 @@ $(document).ready(function(){
       <div class="line"></div>
     </div>
   </label>
-  <label>
-    <p class="label-txt"><font color="#000">Location </font></p></p>
-    <input type="text" class="input" >
-  <div class="line-box">
-      <div class="line"></div>
-    </div>
+<label>
+    <p class="label-txt"><font color="#000">Location</font></p>
+    <br>
+<select style="float: center;">
+  <option value="">Embakasi West , BuruBuru , Nairobi</option>
+  <option value="">Kileleshwa , Nairobi</option>
+  <option value="">Kisumu . Kisumu </option>
+ <option value="">Mzwana , Mombasa</option>
+  <option value="">Old Town, Lamu</option>
+
+
+</select> 
   </label>
+
     <label>
     <p class="label-txt"><font color="#000">Place of Study </font></p></p>
     <br>
