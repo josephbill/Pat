@@ -119,506 +119,179 @@ div.desc {
 	<!-- categories learn a skill -->
 
 <section class=" ">
-	<style type="text/css">
-		.nav-tabs .nav-link.active {
-    font-weight:bold;
-    background-color: transparent;
-    border-bottom:3px solid #dd0000;
-    border-right: none;
-    border-left: none;
-    border-top: none;
+  <style type="text/css">
+    
+    @media only screen and (min-width : 768px) {
+  .is-table-row {
+    display: table;
+  }
+  .is-table-row [class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+  }
 }
 
-	</style>
-
-
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center ">
-                <nav class="nav-justified ">
-                  <div class="nav nav-tabs " id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="pop1-tab" data-toggle="tab" href="#pop1" role="tab" aria-controls="pop1" aria-selected="true"><font color="#7B1FA2"> 1 : Upload</font></a>
-                    <a class="nav-item nav-link" id="pop2-tab" data-toggle="tab" href="#pop2" role="tab" aria-controls="pop2" aria-selected="false"><font color="#7B1FA2"> 2: Next</font></a>
-                    <a class="nav-item nav-link" id="pop3-tab" data-toggle="tab" href="#pop3" role="tab" aria-controls="pop3" aria-selected="false"><font color="#7B1FA2"> 3: Submit</font></a>
-                    
-                  </div>
-                </nav>
-         <div class="tab-content" id="nav-tabContent">
-                    <!--1 -->
-                  <div class="tab-pane fade show active" id="pop1" role="tabpanel" aria-labelledby="pop1-tab">
-                        <div class="pt-3"></div>
-                         <!-- form1 -->
-                         <style type="text/css">
-                         	
-
-body {
-  background: #ffffff;
+.is-table-row .box {
+  background: none;
+  position: static;
 }
-form {
-  width: 60%;
-  margin: 60px auto;
-  background: #efefef;
-  padding: 60px 120px 80px 120px;
-  text-align: center;
-  -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-}
-label {
-  display: block;
-  position: relative;
-  margin: 40px 0px;
-}
-input {
-  width: 100%;
-  padding: 10px;
-  background: transparent;
-  border: none;
-  outline: none;
+.is-table-row [class*="col-"] {
+  background: #fff;
 }
 
-.line-box {
-  position: relative;
-  width: 100%;
-  height: 2px;
-  background: #BCBCBC;
+
+
+/* Base Stuff Ignore */
+
+a { transition: all 225ms ease; }
+
+
+.container { padding-top: 25px; padding-bottom: 25px; background: rgba(255, 255, 255, 0.1); }
+.row { padding-top: 25px; padding-bottom: 25px; background: rgba(255, 255, 255, 0.3); }
+[class*="col-"] { border: solid 1px #e3e3e3; border-top-width: 2px; border-bottom-width: 2px; padding-top: 25px; padding-bottom: 25px; background: rgba(255, 255, 255, 0.5); }
+[class*="col-"]:first-child { border-left-width: 2px; }
+[class*="col-"]:last-child { border-right-width: 2px; }
+
+
+.box {
+    padding: 25px 7% 0;
+    text-align: center;
+    position: relative;
+    background: #fff;
+}
+.box h2 {
+    font-weight: 300;
+    letter-spacing: -0.05em;
+    margin-bottom: 15px;
+}
+.box a {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0;
+    padding: 25px 0;
+}
+.box p {
+    padding-bottom: 125px;
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 0.8;
 }
 
-.line {
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #8BC34A;
-  transition: ease .6s;
-}
 
-input:focus + .line-box .line {
-  width: 100%;
-}
+.key-box { background: #fff; color: #111 !important; }
+  </style>
+    <div class="big-sexy-buttons" >
+        <div class="container">
+            <div class="row is-table-row">
+                  <form style="background-color: #fff;">
+          <div class="col-md-4 form-line">
+                                              <h2><font color="#7B1FA2">Skills</font></h2>
+                                              <br>
+              <div class="form-group">
+                <label><font color="#000">Select Category</font></label>
+              <select class="form-control">
+                  <option>Art</option>
+                  <option>Business</option>
+              </select>
+              </div>
 
-.label-txt {
-  position: absolute;
-  top: -1.6em;
-  padding: 10px;
-  font-family: sans-serif;
-  font-size: .8em;
-  letter-spacing: 1px;
-  color: rgb(120,120,120);
-  transition: ease .3s;
-}
+              <div class="form-group">
+                <label><font color="#000">Skill Type</font></label>
+                <input type="text" class="form-control"  placeholder="if category Art type maybe music">
+              </div>  
+              
+              
+              <div class="form-group">
+                <label><font color="#000">Brief Description</font></label>
+                            <textarea class="form-control"></textarea>
+              </div>
+            </div>
+          
+              <div class="col-md-4 form-line">
+                                              <h2><font color="#7B1FA2">Schedule</font></h2>
+                                              <br>
 
-.label-active {
-  top: -3em;
-}
+              <div class="form-group">
+                <label><font color="#000">When are you available ?</font></label>
+                            <select class="form-control">
+                  <option>Weekends</option>
+                  <option>Weekdays</option>
+                  <option>Both</option>
 
-button {
-  display: inline-block;
-  padding: 12px 24px;
-  background: rgb(220,220,220);
-  font-weight: bold;
-  color: rgb(120,120,120);
-  border: none;
-  outline: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: ease .3s;
-}
+              </select>           
+              </div>
+              <div class="form-group">
+                <label><font color="#000">Lesson Hours</font></label>
+                <input type="text" class="form-control"  placeholder=" e.g from 8:30 - 10:30 ">
+              </div>  
+              <div class="form-group">
+                <label><font color="#000">Place of Study</font></label>
+                         <select class="form-control">
+                  <option>Office</option>
+                  <option>Clients desired Location</option>
+                  <option>Flexible</option>
 
-button:hover {
-  background: #8BC34A;
-  color: #ffffff;
-}
+              </select>
+              </div>
 
-                         </style>
+              
+            </div>
+            
+            
+              <div class="col-md-4 form-line">
+                                              <h2><font color="#7B1FA2">Pricing</font></h2>
+                                                                                            <br>
 
-<script type="text/javascript">
-	
-$(document).ready(function(){
+              <div class="form-group">
+                <label><font color="#000">Charge</font></label>
+                <input type="text" class="form-control" id="" placeholder=" KSH. ">
+              </div>
+              <div class="form-group">
+                <label><font color="#000">Duration of Charge</font></label>
+                            <select class="form-control">
+                  <option>Per Hour</option>
+                  <option>Per Lesson</option>
+                  <option>Per Course</option>
 
-  $('input').focus(function(){
-    $(this).parent().find(".label-txt").addClass('label-active');
-  });
+              </select>
+              </div>  
+              <div class="form-group">
+                <label><font color="#000">Transport Charge</font></label>
+                <input type="text" class="form-control"  placeholder=" if place of study = Client location.">
+              </div>
 
-  $("input").focusout(function(){
-    if ($(this).val() == '') {
-      $(this).parent().find(".label-txt").removeClass('label-active');
-    };
-  });
-
-});
-
-
-
-
-
+ <div class="form-group">
+ 
+                <label><font color="#000">Upload Image</font></label>
+                <input type="file" accept="image/*" onchange="loadFile(event)">
+<img id="output"/>
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
 </script>
-
-<form>
- <label>
-    <p class="label-txt">Select Category</p>
-    <br>
-<select style="float: center;">
-  <option value="Weekdays">Painting</option>
-  <option value="Weekends">Business</option>
-  <option value="Music">Music</option>
- <option value="Cooking">Cooking</option>
-  <option value="IT">IT</option>
-
-
-</select> 
-  </label>
-  <label>
-    <p class="label-txt">Brief description</p>
-    <br>
-<textarea rows="3" cols="40">
-
-</textarea>    <div class="line-box">
-      <div class="line"></div>
+              </div>
+              
+                <div class="form-group">
+              <button class="btn btn-primary" style="float: right;">Submit</button>
+              </div>
+              
+            </div>
+          
+        </form>
+            </div>
+        </div>
     </div>
-  </label>
-  <label>
-    <p class="label-txt">Upload Associated Imagery</p>
-<form action="/action_page.php">
-  <input type="file" name="pic" accept="image/*">
-</form>   
-  </label>
-	<!-- Button -->
-<!-- 								<a class="btn btn-primary" href="pop2" role="button" style="background-color: #7B1FA2; float: center;">Next</a> </form> -->
-                        
-
-
-                      </div>
-                      
-                      <!-- 2 -->
-                  <div class="tab-pane fade" id="pop2" role="tabpanel" aria-labelledby="pop2-tab">
-                       <div class="pt-3"></div>
-                       <!-- form2 -->
-<style type="text/css">
-                         	
-
-body {
-  background: #ffffff;
-}
-form {
-  width: 60%;
-  margin: 60px auto;
-  background: #efefef;
-  padding: 60px 120px 80px 120px;
-  text-align: center;
-  -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-}
-label {
-  display: block;
-  position: relative;
-  margin: 40px 0px;
-}
-input {
-  width: 100%;
-  padding: 10px;
-  background: transparent;
-  border: none;
-  outline: none;
-}
-
-.line-box {
-  position: relative;
-  width: 100%;
-  height: 2px;
-  background: #BCBCBC;
-}
-
-.line {
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #8BC34A;
-  transition: ease .6s;
-}
-
-input:focus + .line-box .line {
-  width: 100%;
-}
-
-.label-txt {
-  position: absolute;
-  top: -1.6em;
-  padding: 10px;
-  font-family: sans-serif;
-  font-size: .8em;
-  letter-spacing: 1px;
-  color: rgb(120,120,120);
-  transition: ease .3s;
-}
-
-.label-active {
-  top: -3em;
-}
-
-button {
-  display: inline-block;
-  padding: 12px 24px;
-  background: rgb(220,220,220);
-  font-weight: bold;
-  color: rgb(120,120,120);
-  border: none;
-  outline: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: ease .3s;
-}
-
-button:hover {
-  background: #8BC34A;
-  color: #ffffff;
-}
-
-                         </style>
-
-<script type="text/javascript">
-	
-$(document).ready(function(){
-
-  $('input').focus(function(){
-    $(this).parent().find(".label-txt").addClass('label-active');
-  });
-
-  $("input").focusout(function(){
-    if ($(this).val() == '') {
-      $(this).parent().find(".label-txt").removeClass('label-active');
-    };
-  });
-
-});
+      
 
 
 
-
-
-</script>
- <form>
-  <label>
-    <p class="label-txt">When are You Available ?</p>
-    <br>
-<select style="float: center;">
-  <option value="Weekdays">Weekdays</option>
-  <option value="Weekends">Weekends</option>
-  <option value="Both">Both</option>
-</select> 
-  </label>
-  <label>
-    <p class="label-txt">Lesson Hours</p>
-    <br>
-    <input type="text" class="input" placeholder="Enter working time e.g 8am - 9pm">
-   <div class="line-box">
-      <div class="line"></div>
-    </div>
-  </label>
-  <label>
-    <p class="label-txt">Location</p>
-    <input type="text" class="input" >
-  <div class="line-box">
-      <div class="line"></div>
-    </div>
-  </label>
-    <label>
-    <p class="label-txt">Where will you be teaching from ?</p>
-    <br>
-<select style="float: center;">
-  <option value="Clients Location">Clients Location</option>
-  <option value="Workshop">Workshop</option>
-  <option value="Home">Home</option>
-  <option value="Flexible">Flexible</option>
-</select> 
-  </label>
-  <label>
-    <p class="label-txt">Other*</p>
-    <input type="text" class="input" >
-  <div class="line-box">
-      <div class="line"></div>
-    </div>
-  </label>
-
-
-          </div>
-
-                  
-                  <!-- 3 -->
-                  <div class="tab-pane fade" id="pop3" role="tabpanel" aria-labelledby="pop3-tab">
-                       <div class="pt-3"></div>
-                       <!-- form3 -->
-<style type="text/css">
-	body {
-  background: #ffffff;
-}
-form {
-  width: 60%;
-  margin: 60px auto;
-  background: #efefef;
-  padding: 60px 120px 80px 120px;
-  text-align: center;
-  -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-}
-label {
-  display: block;
-  position: relative;
-  margin: 40px 0px;
-}
-input {
-  width: 100%;
-  padding: 10px;
-  background: transparent;
-  border: none;
-  outline: none;
-}
-
-.line-box {
-  position: relative;
-  width: 100%;
-  height: 2px;
-  background: #BCBCBC;
-}
-
-.line {
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #8BC34A;
-  transition: ease .6s;
-}
-
-input:focus + .line-box .line {
-  width: 100%;
-}
-
-.label-txt {
-  position: absolute;
-  top: -1.6em;
-  padding: 10px;
-  font-family: sans-serif;
-  font-size: .8em;
-  letter-spacing: 1px;
-  color: rgb(120,120,120);
-  transition: ease .3s;
-}
-
-.label-active {
-  top: -3em;
-}
-
-button {
-  display: inline-block;
-  padding: 12px 24px;
-  background: rgb(220,220,220);
-  font-weight: bold;
-  color: rgb(120,120,120);
-  border: none;
-  outline: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: ease .3s;
-}
-
-button:hover {
-  background: #8BC34A;
-  color: #ffffff;
-}
-
-
-</style>
-
-<script type="text/javascript">
-	
-$(document).ready(function(){
-
-  $('input').focus(function(){
-    $(this).parent().find(".label-txt").addClass('label-active');
-  });
-
-  $("input").focusout(function(){
-    if ($(this).val() == '') {
-      $(this).parent().find(".label-txt").removeClass('label-active');
-    };
-  });
-
-});
-
-
-
-
-</script>
-<form style="float: center; color: #BCBCBC" >
-	 <label>
-    <p class="label-txt"><font color="#000">What is your charge ? </font></p>
-    <br>
-    <input type="text" class="input" placeholder="Indicate currency">
-   <div class="line-box">
-      <div class="line"></div>
-    </div>
-  </label>
-  <label>
-    <p class="label-txt"><font color="#000">Duration of Pricing </font></p></p>
-    <br>
-<select style="float: center;">
-  <option value="per hour">per Hour</option>
-  <option value="per lesson">per Lesson</option>
-  <option value="per course">per Course</option>
-</select> 
-  </label>
-  <label>
-    <p class="label-txt"><font color="#000">Lesson Hours</font></p></p>
-    <br>
-    <input type="text" class="input" placeholder="Enter working time e.g 8am - 9pm">
-   <div class="line-box">
-      <div class="line"></div>
-    </div>
-  </label>
-<label>
-    <p class="label-txt"><font color="#000">Location</font></p>
-    <br>
-<select style="float: center;">
-  <option value="">Embakasi West , BuruBuru , Nairobi</option>
-  <option value="">Kileleshwa , Nairobi</option>
-  <option value="">Kisumu . Kisumu </option>
- <option value="">Mzwana , Mombasa</option>
-  <option value="">Old Town, Lamu</option>
-
-
-</select> 
-  </label>
-
-    <label>
-    <p class="label-txt"><font color="#000">Place of Study </font></p></p>
-    <br>
-<select style="float: center;">
-  <option value="Clients Location">Clients Location</option>
-  <option value="Workshop">Workshop</option>
-  <option value="Home">Home</option>
-  <option value="Flexible">Flexible</option>
-</select> 
-  </label>
-  <label>
-    <p class="label-txt"><font color="#000">Other *</font></p></p>
-    <input type="text" class="input" >
-  <div class="line-box">
-      <div class="line"></div>
-    </div>
-  </label>
-  <button class="btn btn btn-primary" type="submit">Upload details</button>
-
-  </div>
-       
+    
 </section>
 	
 
@@ -734,6 +407,7 @@ $(document).ready(function(){
 
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>
 </html>

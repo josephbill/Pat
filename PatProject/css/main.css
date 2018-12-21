@@ -48,6 +48,11 @@ html, body, {
     right:0;
 }
 
+.about{
+ background-repeat: no-repeat;
+
+}
+
 .column {
   float: left;
   width: 33.33%;
