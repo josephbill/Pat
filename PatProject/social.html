@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="google-signin-client_id" content="209621451105-fh59t7gf8teg7105jq92sfjifspegllc.apps.googleusercontent.com">
+		<title>Social Login</title>
+
+		<!-- Firebase js authentication for twitter -->
+		<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-auth.js"></script>
+		<!-- Firebase js authentication for twitter ends here -->
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	</head>
+	<body>
+		<script>
+			/**
+			  * Sign in using Twitter via Firebase
+			  */
+
+			// Initialize Firebase
+			  var config = {
+			    apiKey: "AIzaSyDdh31Dkmj-6dQlYEM1g3hAIDqUBQe-7ZY",
+			    authDomain: "signin-b0ef3.firebaseapp.com",
+			    databaseURL: "https://signin-b0ef3.firebaseio.com",
+			    projectId: "signin-b0ef3",
+			    storageBucket: "signin-b0ef3.appspot.com",
+			    messagingSenderId: "104553226757"
+			  };
+			  firebase.initializeApp(config);
+
+
+			  /**
+			   * Sign in using Facebook
+			   */
+
+			// Initialize the Facebook Javascript SDK
+		    window.fbAsyncInit = function() {
+		      FB.init({
+
+		      	// Add your App Id from developers.facebook.com
+		        appId            : '1850977041820089',
+		        autoLogAppEvents : true,
+		        xfbml            : true,
+		        version          : 'v3.2'
+		      });
+		    };
+
+		    // Load the SDK asynchronously
+		    (function(d, s, id){
+		       var js, fjs = d.getElementsByTagName(s)[0];
+		       if (d.getElementById(id)) {return;}
+		       js = d.createElement(s); js.id = id;
+		       js.src = "https://connect.facebook.net/en_US/sdk.js";
+		       fjs.parentNode.insertBefore(js, fjs);
+		     }(document, 'script', 'facebook-jssdk'));
+
+
+			function statusChangeCallback(response){
+				// Comment this out when deploying to disbale console logging
+				console.log('statusChangeCallback');
+				console.log(response);
+
+				if (response.status === 'connected') {
+					$('#status').html("<div class=\"alert alert-success\" role=\"alert\">You are now logged in.</div>");
+					window.location.replace('https://vigilant-hoover-e68d0f.netlify.com/');
+				} else {
+					$('#status').html("<div class=\"alert alert-info\" role=\"alert\">Please login to continue</div>");
+				}
+			}
+
+			// Called from the onlogin handler when a user is done with the 
+			// login button
+			function checkLoginState(){
+				FB.getLoginStatus(function(response){
+					statusChangeCallback(response);
+				});
+			}
+
+			// Get the state of the site's visitor
+			FB.getLoginStatus(function(response){
+				statusChangeCallback(response);
+			});
+
+			
+			/**
+			 * Sign in using Google
+			 */ 
+
+			// Google sign in specific code
+			function onSuccess(googleUser) {
+		      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+		      // Redirect upon successful authentication
+				window.location.replace("https://vigilant-hoover-e68d0f.netlify.com")
+		    }
+		    function onFailure(error) {
+		    	// Comment this out when deploying to disbale console logging
+				console.log(error);
+		    }
+		    function renderButton() {
+		      gapi.signin2.render('my-signin2', {
+		        'scope': 'profile email',
+		        'width': 240,
+		        'height': 50,
+		        'longtitle': true,
+		        'theme': 'dark',
+		        'onsuccess': onSuccess,
+		        'onfailure': onFailure
+		      });
+		    }
+		    function twitterLogin() {
+		    	var provider = new firebase.auth.TwitterAuthProvider();
+
+		    	firebase.auth().signInWithPopup(provider).then(function(result) {
+
+					// This gives you a the Twitter OAuth 1.0 Access Token and Secret.
+					// You can use these server side with your app's credentials to access the Twitter API.
+					var token = result.credential.accessToken;
+					var secret = result.credential.secret;
+					// The signed-in user info.
+					var user = result.user;
+
+					// Comment this out when deploying to disbale console logging
+					console.log(token + ": " + user);
+
+
+					// Redirect upon successful authentication
+					window.location.replace("https://vigilant-hoover-e68d0f.netlify.com")
+				}).catch(function(error) {
+						// Handle Errors here.
+						var errorCode = error.code;
+						var errorMessage = error.message;
+						// The email of the user's account used.
+						var email = error.email;
+						// The firebase.auth.AuthCredential type that was used.
+						var credential = error.credential;
+
+						// Comment this out when deploying to disbale console logging
+						console.log(errorCode + ": " + errorMessage);
+
+						// Custom jQuery to diplay error messages in case of failures
+						$('#status').html("<div class=\"alert alert-info\" role=\"alert\">An error occured while trying<br>to log you in. Please Try again.</div>");
+				});
+		    }
+	  	</script>
+
+		<div class="container">
+			<div class="row pt-4">
+				
+			</div>
+			<div class="row">
+				<div class="col"></div>
+				<div class="col">
+					<div id="fb-root"></div>
+					<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" 
+				scope="public_profile,email" onlogin="checkLoginState();"></div>
+					<div id="status" class="pt-2"></div>
+					<div id="my-signin2" class="pt-2"></div>
+					<div class="pt-2">
+						<a href="#" onclick="twitterLogin()" class="btn btn-info btn-block"><i class="fa fa-twitter"></i> Sign in with <b>Twitter</b></a>
+					</div>
+				</div>
+				<div class="col"></div>
+			</div>
+		</div>
+
+				<div class="container">
+			<div class="row pt-4">
+				
+			</div>
+			<div class="row">
+			<a href="up.html" class="btn btn-primary" role="button">Test</a>
+		</div>
+
+		<!-- Google sign in script -->
+		<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+		<!-- jQuery, Popper and Bootstrap javascript -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+	  </body>
+</html>

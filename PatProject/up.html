@@ -52,6 +52,14 @@ div.gallery img {
   width: 100%;
   height: auto;
 }
+.alert{
+ text-align: center;
+ padding: 10px;
+ background-color: #79c879;
+ margin-bottom: 10px;
+ display: none;
+
+}
 
 div.desc {
   padding: 15px;
@@ -68,7 +76,7 @@ div.desc {
 			<div class="topbar">
 				<div class="topbar-social">
 
-					<a href="index.html" class="topbar-social-item "><font color="#7B1FA2">skillaby</font></p></a>
+					<a href="index.html" class="topbar-social-item "><font color="#7B1FA2">skillaby</font></a>
 
 					<a href="#" class="topbar-social-item fa fa-facebook"></a>
 
@@ -187,61 +195,66 @@ a { transition: all 225ms ease; }
     <div class="big-sexy-buttons" >
         <div class="container">
             <div class="row is-table-row">
-                  <form style="background-color: #fff;">
-          <div class="col-md-4 form-line">
-                                              <h2><font color="#7B1FA2">Skills</font></h2>
+            <form style="background-color: #fff;" method="POST" enctype="multipart/form-data" action="up.php" id="subform">
+            <div class="col-md-4 form-line">
+                <h2><font color="#7B1FA2">Skills</font></h2>
                                               <br>
+<!-- 
+                                              <div class="alert" >
+                                              
+                                                                                                  </style>
+                                                <font color="#000">  Your Resume has been uploaded</font>
+                                              
+                                              </div> -->
               <div class="form-group">
                 <label><font color="#000">Select Category</font></label>
-              <select class="form-control">
-                  <option>Art</option>                  <option>Horticulture</option>
-
-                  <option>Dancing</option>              <option>Health and Fitness</option>
-
-                  <option>DIY</option>                  <option>IT</option>
-
-                  <option>Baking</option>               <option>Jewellery</option>
-                  <option>Farming</option>              <option>Languages</option>
-                  <option>Coffee Brewing</option>       <option>Music</option>
-
-                  <option>Cooking</option>              <option>Painting</option>
-
-                  <option>Crafts</option>               <option>Pets</option>
-
-                  <option>Hair and Beauty</option>      <option>Photography</option>
-
-                  <option>Fashion and Design</option>  <option>Sports</option>
-
-                  <option>Decor and Event Planning</option>                  <option>Writing</option>
-
-                  <option>Business Mentorship</option>                  <option>Enterprenuership</option>
-
-
-
-
-
+              <select class="form-control" name="category" id="formart">
+                  <option>Art</option>
+                  <option>Horticulture</option>
+                  <option>Dancing</option>
+                  <option>Health and Fitness</option>
+                  <option>DIY</option>
+                  <option>IT</option>
+                  <option>Baking</option>               
+                  <option>Jewellery</option>
+                  <option>Farming</option>              
+                  <option>Languages</option>
+                  <option>Coffee Brewing</option>       
+                  <option>Music</option>
+                  <option>Cooking</option>              
+                  <option>Painting</option>
+                  <option>Crafts</option>               
+                  <option>Pets</option>
+                  <option>Hair and Beauty</option>      
+                  <option>Photography</option>
+                  <option>Fashion and Design</option>  
+                  <option>Sports</option>
+                  <option>Decor and Event Planning</option>                  
+                  <option>Writing</option>
+                  <option>Business Mentorship</option>                  
+                  <option>Enterprenuership</option>
               </select>
               </div>
 
               <div class="form-group">
                 <label><font color="#000">Skill Type</font></label>
-                <input type="text" class="form-control"  placeholder="if category Art type maybe music">
+                <input type="text" name="skillType" class="form-control"  placeholder="if category Art type maybe music" id="skills">
               </div>  
               
               
               <div class="form-group">
                 <label><font color="#000">Brief Description</font></label>
-                            <textarea class="form-control"></textarea>
+                <textarea class="form-control" name='description' id="desc"></textarea>
               </div>
             </div>
           
               <div class="col-md-4 form-line">
-                                              <h2><font color="#7B1FA2">Schedule</font></h2>
-                                              <br>
+              <h2><font color="#7B1FA2">Schedule</font></h2>
+              <br>
 
               <div class="form-group">
                 <label><font color="#000">When are you available ?</font></label>
-                            <select class="form-control">
+                  <select class="form-control" name="available" id="when">
                   <option>Weekends</option>
                   <option>Weekdays</option>
                   <option>Both</option>
@@ -250,33 +263,29 @@ a { transition: all 225ms ease; }
               </div>
               <div class="form-group">
                 <label><font color="#000">Lesson Hours</font></label>
-                <input type="text" class="form-control"  placeholder=" e.g from 8:30 - 10:30 ">
+                <input type="text" class="form-control"  name="lessonTime" placeholder=" e.g from 8:30 - 10:30 " id="lesshrs">
               </div>  
               <div class="form-group">
                 <label><font color="#000">Place of Study</font></label>
-                         <select class="form-control">
+                <select class="form-control" name="studyPlace" id="place">
                   <option>Office</option>
                   <option>Clients desired Location</option>
                   <option>Flexible</option>
-
               </select>
               </div>
-
-              
             </div>
             
             
               <div class="col-md-4 form-line">
-                                              <h2><font color="#7B1FA2">Pricing</font></h2>
-                                                                                            <br>
+                <h2><font color="#7B1FA2">Pricing</font></h2> <br>
 
               <div class="form-group">
                 <label><font color="#000">Charge</font></label>
-                <input type="text" class="form-control" id="" placeholder=" KSH. ">
+                <input type="text" class="form-control" id="charge" name="charge" placeholder=" KSH. " >
               </div>
               <div class="form-group">
                 <label><font color="#000">Duration of Charge</font></label>
-                            <select class="form-control">
+                  <select class="form-control" name="chargeDuration" id="durcharge">
                   <option>Per Hour</option>
                   <option>Per Lesson</option>
                   <option>Per Course</option>
@@ -285,13 +294,13 @@ a { transition: all 225ms ease; }
               </div>  
               <div class="form-group">
                 <label><font color="#000">Transport Charge</font></label>
-                <input type="text" class="form-control"  placeholder=" if place of study = Client location.">
+                <input type="text" class="form-control"  name="transportCharge" placeholder=" if place of study = Client location." id="trans">
               </div>
 
  <div class="form-group">
  
                 <label><font color="#000">Upload Image</font></label>
-                <input type="file" accept="image/*" onchange="loadFile(event)" multiple>
+                <input type="file" name="image" id="images" accept="image/*" onchange="loadFile(event)" multiple >
 <img id="output"/>
 <script>
   var loadFile = function(event) {
@@ -302,7 +311,14 @@ a { transition: all 225ms ease; }
               </div>
               
                 <div class="form-group">
-              <button class="btn btn-primary" style="float: right;">Submit</button>
+                  <script type="text/javascript">
+function Confirm(form){
+alert("Record insert successfully!"); 
+form.submit();
+}
+</script>
+              <button class="btn btn-primary" style="float: right;" type="submit" name='submit' onClick="Confirm(this.form)">Submit</button>
+
               </div>
               
             </div>
@@ -386,11 +402,12 @@ a { transition: all 225ms ease; }
 
 		</footer>
 
-
+ 
 	
 
 <!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
 <!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
@@ -428,9 +445,16 @@ a { transition: all 225ms ease; }
 			});
 		});
 	</script>
+  <!--===============================================================================================-->
+<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+ <!--===============================================================================================-->
+  <script type="text/javascript" src="js/up.js"></script>
 
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+<!--===============================================================================================-->
+  <script type="text/javascript" src="js/main.js"></script>
+
+<!--===============================================================================================-->
 <!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>
