@@ -10,9 +10,26 @@
   firebase.initializeApp(config);
 
 
+
+  
   // reference resume collection
   //intialize firebase database
+  //path to dta
   var resumeRef = firebase.database().ref('resume');
+  // i am binding different kind of events 
+  resumeRef.on('value', gotData, errData);
+  //see data on console from submitted form here using console log 
+  function gotData (data){
+    console.log(data.val());
+    var resume = data.val();
+    var keys = Object.keys(resume);
+    //get keys in submitted data
+    console.log(keys);
+  }
+ function errData (err){
+  console.log('Error!');
+  console.log(err);
+ }
 
 
 //listen for form submit 
@@ -29,10 +46,11 @@ function submitForm(e){
    var description = getInputVal('desc');
    var availabilty = getInputVal('when');
    var lesson = getInputVal('lesshrs');
-   var place = getInputVal('place');
+   var place = getInputVal('place'); 
    var duration = getInputVal('durcharge');
    var transport = getInputVal('trans');
    var images = getInputVal('images');
+
 
 
 // save resume
@@ -69,5 +87,7 @@ function saveResume(formart,skills,desc,when,lesshrs,place,durcharge,trans,image
         images: images
 
     });
+
+
 
 }
